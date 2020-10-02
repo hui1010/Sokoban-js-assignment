@@ -152,6 +152,7 @@ function pushBlock(boxNextRow, boxNextCol){
                 map[playerCurrentRow][playerCurrentCol] = new Array(' ');
             else if(map[playerCurrentRow][playerCurrentCol].toString() === "PG")
                 map[playerCurrentRow][playerCurrentCol] = new Array('G');
+            goals ++;
         } else{
             map[playerNextRow][playerNextCol] = new Array('P');
             map[playerCurrentRow][playerCurrentCol] = new Array(' ');
@@ -167,7 +168,7 @@ function moveDown(){
     playerNextCol = playerCurrentCol;
 
     //if the player is moving inside the goal area himself
-    if (map[playerNextRow][playerNextCol].toString() === "G" || map[playerNextRow][playerNextCol].toString() === "BG"){
+    if (map[playerNextRow][playerNextCol].toString() === "G"){
         //moving into the  goal area
         map[playerNextRow][playerNextCol] = new Array("PG");
         playerMoveOutGoal();
