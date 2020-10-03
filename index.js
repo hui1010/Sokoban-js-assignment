@@ -44,6 +44,34 @@ var tileMap01 = {
     ]
 };
 //--------------------------------------------------------
+
+var start = document.getElementById("btn-start");
+start.addEventListener('click', startGame);
+function startGame () {
+    window.addEventListener('keydown', function (e) {
+        switch (e.key) {
+            case 'ArrowUp':
+                e.preventDefault();
+                moveUp();
+                break;
+            case 'ArrowDown':
+                e.preventDefault();
+                moveDown();
+                break;
+            case 'ArrowLeft':
+                e.preventDefault();
+                moveToLeft();
+                break;
+            case 'ArrowRight':
+                e.preventDefault();
+                moveToRight();
+                break;
+            default:
+                break;
+        }
+    }, false);
+}
+
 var goals = 0;
 var map = tileMap01.mapGrid;
 setMap();
@@ -104,11 +132,12 @@ function setClass(className){
 var playerCurrentRow = 11;
 var playerCurrentCol = 11;
 var playerNextRow, playerNextCol;
-// var player = document.getElementsByClassName("player").item(0);
-// player.addEventListener('keyup', moveUp);
-// player.addEventListener('keydown', moveDown);
-// player.addEventListener('keyleft', moveToLeft);
-// player.addEventListener('keyright', moveToRight);
+//var player = document.getElementsByClassName("player").item(0);
+//player.addEventListener('ArrowUp', moveUp);
+//player.addEventListener('ArrowDown', moveDown);
+//player.addEventListener('ArrowLeft', moveToLeft);
+//player.addEventListener('ArrowRight', moveToRight);
+
 document.getElementById("up").addEventListener('click', moveUp);
 document.getElementById("down").addEventListener('click', moveDown);
 document.getElementById("left").addEventListener('click', moveToLeft);
