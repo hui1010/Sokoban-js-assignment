@@ -129,19 +129,13 @@ function setClass(className){
     document.getElementById("board").appendChild(node);
 }
 
+var restart = document.getElementById("btn-restart");
+restart.addEventListener('click', location.reload.bind(location));
+
 var playerCurrentRow = 11;
 var playerCurrentCol = 11;
 var playerNextRow, playerNextCol;
-//var player = document.getElementsByClassName("player").item(0);
-//player.addEventListener('ArrowUp', moveUp);
-//player.addEventListener('ArrowDown', moveDown);
-//player.addEventListener('ArrowLeft', moveToLeft);
-//player.addEventListener('ArrowRight', moveToRight);
 
-document.getElementById("up").addEventListener('click', moveUp);
-document.getElementById("down").addEventListener('click', moveDown);
-document.getElementById("left").addEventListener('click', moveToLeft);
-document.getElementById("right").addEventListener('click', moveToRight);
 
 function playerMoveOutGoal(){
     //moving out goal area
@@ -192,6 +186,13 @@ function pushBlock(boxNextRow, boxNextCol){
     }
 }
 
+function moveToSpace(){
+    if (map[playerCurrentRow][playerCurrentCol].toString() === "PG")
+        map[playerCurrentRow][playerCurrentCol] = new Array('G');
+    else
+        map[playerCurrentRow][playerCurrentCol] = new Array(' ');
+}
+
 function moveDown(){
     playerNextRow = playerCurrentRow +1;
     playerNextCol = playerCurrentCol;
@@ -226,8 +227,8 @@ function moveDown(){
     }
 }
 
+
 function moveUp(){
-    console.log(11);
     playerNextRow = playerCurrentRow - 1;
     playerNextCol = playerCurrentCol;
 
@@ -241,10 +242,7 @@ function moveUp(){
 
     if (map[playerNextRow][playerNextCol].toString() === " "){//nothing
         map[playerNextRow][playerNextCol] = new Array('P');
-        if (map[playerCurrentRow][playerCurrentCol].toString() === "PG")
-            map[playerCurrentRow][playerCurrentCol] = new Array('G');
-        else
-            map[playerCurrentRow][playerCurrentCol] = new Array(' ');
+        moveToSpace();
         //move the player
         playerCurrentRow = playerNextRow;
         playerCurrentCol = playerNextCol;
@@ -275,10 +273,7 @@ function moveToLeft(){
 
     if (map[playerNextRow][playerNextCol].toString() === " "){//nothing
         map[playerNextRow][playerNextCol] = new Array('P');
-        if (map[playerCurrentRow][playerCurrentCol].toString() === "PG")
-            map[playerCurrentRow][playerCurrentCol] = new Array('G');
-        else
-            map[playerCurrentRow][playerCurrentCol] = new Array(' ');
+        moveToSpace();
         //move the player
         playerCurrentRow = playerNextRow;
         playerCurrentCol = playerNextCol;
@@ -310,10 +305,7 @@ function moveToRight(){
     if (map[playerNextRow][playerNextCol].toString() === " "){//nothing
 
         map[playerNextRow][playerNextCol] = new Array('P');
-        if (map[playerCurrentRow][playerCurrentCol].toString() === "PG")
-            map[playerCurrentRow][playerCurrentCol] = new Array('G');
-        else
-            map[playerCurrentRow][playerCurrentCol] = new Array(' ');
+        moveToSpace();
         //move the player
         playerCurrentRow = playerNextRow;
         playerCurrentCol = playerNextCol;
@@ -331,5 +323,9 @@ function moveToRight(){
     }
 }
 
-var restart = document.getElementById("btn-restart");
-restart.addEventListener('click', setMap);
+//For testing purpose
+// document.getElementById("up").addEventListener('click', moveUp);
+// document.getElementById("down").addEventListener('click', moveDown);
+// document.getElementById("left").addEventListener('click', moveToLeft);
+// document.getElementById("right").addEventListener('click', moveToRight);
+

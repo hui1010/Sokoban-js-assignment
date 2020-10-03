@@ -1,16 +1,26 @@
 body{
-    width: 100%;
-    height: 100%;
+    /*width: 100%;*/
+    /*height: 100%;*/
     background-color: #2A2A2A;
     position: relative;
 }
-
-#btn-start,
-#btn-restart{
+.buttons{
     position: relative;
-    display: inline-flex;
+    display: block;
+    float: left;
     top: 200px;
-    left: 100px;
+    margin-left: 20px;
+}
+
+.info{
+    color: bisque;
+    white-space: normal;
+}
+ul>li{
+    width: 300px;
+    position: relative;
+    display: block;
+    margin: 5px 0;
 }
 
 #board{
@@ -19,8 +29,7 @@ body{
     background-color: #383838;
     position: relative;
     float: right;
-    /*top: 150px;*/
-    /*left: 400px;*/
+    right: 20px;
 }
 
 .hidden{
