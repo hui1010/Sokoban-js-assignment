@@ -72,13 +72,15 @@ function startGame () {
     }, false);
 }
 
-var goals = 0;
+var goals;
 var map = tileMap01.mapGrid;
+var originalMap = tileMap01.mapGrid;
 setMap();
 function setMap(){
+    goals = 0;
     for (var i = 0; i <tileMap01.height; i++){
         for (var j = 0; j < tileMap01.width; j++){
-            switch (map[i][j].toString()){
+            switch (originalMap[i][j].toString()){
                 case "W": setClass("wall");
                             break;
                 case "B": setClass("movableBlock");
@@ -130,7 +132,9 @@ function setClass(className){
 }
 
 var restart = document.getElementById("btn-restart");
-restart.addEventListener('click', location.reload.bind(location));
+restart.addEventListener('click', setMap);
+//another way to do the restart -- refresh the page
+//restart.addEventListener('click', location.reload.bind(location));
 
 var playerCurrentRow = 11;
 var playerCurrentCol = 11;
@@ -163,7 +167,7 @@ function pushBlock(boxNextRow, boxNextCol){
         if (nextBox === " " && map[playerNextRow][playerNextCol].toString() === "BG"){
             map[playerNextRow][playerNextCol] = new Array("PG");
             map[playerCurrentRow][playerCurrentCol] = new Array('G');
-            goals ++;
+            goals++;
         } else if (nextBox === " " && map[playerNextRow][playerNextCol].toString() !== "BG" && map[playerCurrentRow][playerCurrentCol].toString() === "PG"){
             map[playerNextRow][playerNextCol] = new Array("P");
             map[playerCurrentRow][playerCurrentCol] = new Array('G');
@@ -175,7 +179,7 @@ function pushBlock(boxNextRow, boxNextCol){
                 map[playerCurrentRow][playerCurrentCol] = new Array(' ');
             else if(map[playerCurrentRow][playerCurrentCol].toString() === "PG")
                 map[playerCurrentRow][playerCurrentCol] = new Array('G');
-            goals ++;
+            goals++;
         } else{
             map[playerNextRow][playerNextCol] = new Array('P');
             map[playerCurrentRow][playerCurrentCol] = new Array(' ');
