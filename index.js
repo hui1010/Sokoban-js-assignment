@@ -77,6 +77,7 @@ var map = tileMap01.mapGrid;
 var originalMap = tileMap01.mapGrid;
 setMap();
 function setMap(){
+    document.getElementById("board").innerHTML = "";
     goals = 0;
     for (var i = 0; i <tileMap01.height; i++){
         for (var j = 0; j < tileMap01.width; j++){
@@ -132,9 +133,9 @@ function setClass(className){
 }
 
 var restart = document.getElementById("btn-restart");
-restart.addEventListener('click', setMap);
+//restart.addEventListener('click', setMap);
 //another way to do the restart -- refresh the page
-//restart.addEventListener('click', location.reload.bind(location));
+restart.addEventListener('click', location.reload.bind(location));
 
 var playerCurrentRow = 11;
 var playerCurrentCol = 11;
