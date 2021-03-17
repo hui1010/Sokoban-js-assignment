@@ -1,0 +1,27 @@
+{
+  "name": "sokoban_assignment_javascript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hui1010/Sokoban-js-assignment.git"
+  },
+  "author": "Huiyi Skårner",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hui1010/Sokoban-js-assignment/issues"
+  },
+  "engines": {
+    "node": "12.19.0"
+  },
+  "homepage": "https://github.com/hui1010/Sokoban-js-assignment#readme"
+}
