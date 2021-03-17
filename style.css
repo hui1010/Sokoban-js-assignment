@@ -3,6 +3,7 @@ body{
     /*height: 100%;*/
     background-color: #2A2A2A;
     position: relative;
+    margin: 100px;
 }
 .buttons{
     position: relative;
