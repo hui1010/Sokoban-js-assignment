@@ -5,13 +5,13 @@ const express = require('express')
 const app = express()
 
 // Settings
-app.use(express.static(__dirname));
+app.use(express.static("public"));
 app.set('port', process.env.PORT || 3000);
 
 // A sample route
 app.get('/', function (req, res) {
-    res.sendFile( __dirname + "/" + "index.html" );
+    res.sendFile( __dirname + "/public/" + "index.html" );
  })
 
 // Start the Express server
-app.listen('3000', () => console.log('Server running on port 3000!'))
+app.listen(process.env.PORT || 3000, () => console.log('Server running on port 3000!'))
